@@ -17,7 +17,7 @@
         SvelteKit 🚀
       </div>
 
-      <!-- Navigation Links (Desktop) -->
+      <!-- Navigation Links (Desktop) ✅ FIXED -->
       <div class="hidden md:flex space-x-8">
         <a href="/" 
            class="relative px-3 py-2 font-medium transition duration-300
@@ -40,6 +40,15 @@
            class:dark-bg-gray-700={$currentPath === "/contact"}>
           Contact
         </a>
+        <a href="/carousel" 
+           class="relative px-3 py-2 font-medium transition duration-300 
+                  text-gray-700 dark:text-gray-300 
+                  hover:text-purple-600 dark:hover:text-purple-400 
+                  hover:underline"
+           class:bg-gray-300={$currentPath === "/carousel"}  
+           class:dark-bg-gray-700={$currentPath === "/carousel"}> 
+          Carousel
+        </a>
       </div>
 
       <!-- Dark Mode Toggle Inside Navbar -->
@@ -60,29 +69,38 @@
     </div>
   </div>
 
-  <!-- Mobile Dropdown Menu -->
+  <!-- Mobile Dropdown Menu ✅ FIXED -->
   <div class="absolute w-full md:hidden transition-all duration-500 ease-in-out bg-white dark:bg-gray-800 shadow-md rounded-lg py-3 px-5"
        class:hidden={!menuOpen}>
-      <a href="/" 
-         class="block relative px-3 py-2 font-medium transition duration-300
-                text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
-         class:bg-gray-300={$currentPath === "/"}
-         class:dark-bg-gray-700={$currentPath === "/"}>
-        Home
-      </a>
-      <a href="/about" 
-         class="block relative px-3 py-2 font-medium transition duration-300
-                text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 hover:underline"
-         class:bg-gray-300={$currentPath === "/about"}
-         class:dark-bg-gray-700={$currentPath === "/about"}>
-        About
-      </a>
-      <a href="/contact" 
-         class="block relative px-3 py-2 font-medium transition duration-300
-                text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 hover:underline"
-         class:bg-gray-300={$currentPath === "/contact"}
-         class:dark-bg-gray-700={$currentPath === "/contact"}>
-        Contact
-      </a>
+    <a href="/" 
+       class="block relative px-3 py-2 font-medium transition duration-300
+              text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
+       class:bg-gray-300={$currentPath === "/"}
+       class:dark-bg-gray-700={$currentPath === "/"}>
+      Home
+    </a>
+    <a href="/about" 
+       class="block relative px-3 py-2 font-medium transition duration-300
+              text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 hover:underline"
+       class:bg-gray-300={$currentPath === "/about"}
+       class:dark-bg-gray-700={$currentPath === "/about"}>
+      About
+    </a>
+    <a href="/contact" 
+       class="block relative px-3 py-2 font-medium transition duration-300
+              text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 hover:underline"
+       class:bg-gray-300={$currentPath === "/contact"}
+       class:dark-bg-gray-700={$currentPath === "/contact"}>
+      Contact
+    </a>
+    <a href="/carousel" 
+       class="block relative px-3 py-2 font-medium transition duration-300 
+              text-gray-700 dark:text-gray-300 
+              hover:text-purple-600 dark:hover:text-purple-400 
+              hover:underline"
+       class:bg-gray-300={$currentPath === "/carousel"}  
+       class:dark-bg-gray-700={$currentPath === "/carousel"}> 
+      Carousel
+    </a>
   </div>
 </nav>
