@@ -1,12 +1,15 @@
 <script>
   import { onMount } from "svelte";
+  import { loremText } from "$lib/stores/loremStore";  // ✅ Corrected import path
 
-  let loremText = "";
-
-  // Load the lorem text from static file
   onMount(async () => {
-    const response = await fetch("/lorem.txt");
-    loremText = await response.text();
+    let value;
+    loremText.subscribe((v) => (value = v));
+    if (!value) {
+      const response = await fetch("/lorem.txt");
+      const text = await response.text();
+      loremText.set(text);
+    }
   });
 </script>
 
@@ -27,8 +30,8 @@
 
 <!-- Long Scrollable Text -->
 <div class="p-6 max-w-3xl mx-auto text-lg leading-relaxed mt-10">
-  {#if loremText}
-    <pre class="whitespace-pre-wrap text-gray-800 dark:text-gray-200">{loremText}</pre>
+  {#if $loremText}
+    <pre class="whitespace-pre-wrap text-gray-800 dark:text-gray-200">{$loremText}</pre>
   {:else}
     <p>Loading content...</p>
   {/if}
