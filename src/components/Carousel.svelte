@@ -1,7 +1,7 @@
 <script>
   import { writable } from "svelte/store";
+  import { fade } from "svelte/transition"; // ✅ Fade Effect
 
-  // Use direct Unsplash image URLs instead of API-generated ones
   const images = [
     "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=900&q=80",
     "https://images.unsplash.com/photo-1521747116042-5a810fda9664?w=900&q=80",
@@ -11,18 +11,18 @@
   let currentIndex = writable(0);
 
   function prevImage() {
-    currentIndex.update((n) => (n === 0 ? images.length - 1 : n - 1));
+    currentIndex.update(n => (n === 0 ? images.length - 1 : n - 1));
   }
 
   function nextImage() {
-    currentIndex.update((n) => (n === images.length - 1 ? 0 : n + 1));
+    currentIndex.update(n => (n === images.length - 1 ? 0 : n + 1));
   }
 </script>
 
 <div class="carousel-container">
   {#each images as img, i}
-    <div class="carousel-slide" class:active={$currentIndex === i}>
-      <img src={img} alt="Carousel Image" class="carousel-image" class:raised={$currentIndex === i} />
+    <div class="carousel-slide {($currentIndex === i) ? 'active' : ''}" transition:fade={{ duration: 500 }}>
+      <img src={img} alt="Carousel Image" class="carousel-image {($currentIndex === i) ? 'raised' : ''}" />
     </div>
   {/each}
 
@@ -46,12 +46,14 @@
   }
 
   .carousel-slide {
-    display: none;
-    transition: transform 0.5s ease-in-out;
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out;
   }
 
   .carousel-slide.active {
-    display: block;
+    opacity: 1;
   }
 
   .carousel-image {

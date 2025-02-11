@@ -7,4 +7,6 @@
   <p class="text-gray-700 text-lg mt-2">A beautiful image carousel with smooth transitions.</p>
 </div>
 
-<Carousel />
+<a href="/carousel" sveltekit:prefetch={false}> 
+  <Carousel />
+</a>
