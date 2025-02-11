@@ -4,11 +4,14 @@
   import "../app.css";
   import DarkModeToggle from "../components/DarkModeToggle.svelte";
   import Navbar from "../components/Navbar.svelte";
+  import FloatingButtons from "../components/FloatingButtons.svelte";
 
 </script>
 <Navbar />
+<FloatingButtons class="pt-200" />
 
 <!-- Add padding to push content below the navbar -->
 <div class="pt-20">
   <slot />
 </div>
+
