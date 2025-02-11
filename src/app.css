@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-white text-gray-900 transition-colors duration-300;
+}
+
+/* Fix: Override Global Background & Text Variables for Dark Mode */
+.dark {
+  --color-bg-0: rgb(15, 23, 42); /* Dark grayish-blue */
+  --color-bg-1: hsl(220, 26%, 20%);
+  --color-bg-2: hsl(225, 15%, 15%);
+  --color-text: rgba(255, 255, 255, 0.85); /* Light text */
+}
+
+.dark body {
+  @apply bg-gray-900 text-white;
+}
+
+/* Ensure Dark Mode Changes Are Applied to the Background */
+.dark body {
+  background-color: var(--color-bg-1) !important;
+  background-image: none !important;
+}
