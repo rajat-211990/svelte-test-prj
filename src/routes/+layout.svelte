@@ -1,11 +1,14 @@
 <script>
+  import { fade } from 'svelte/transition';
+  import { page } from '$app/stores'; 
   import "../app.css";
   import DarkModeToggle from "../components/DarkModeToggle.svelte";
+  import Navbar from "../components/Navbar.svelte";
+
 </script>
+<Navbar />
 
-<div class="flex justify-between items-center p-4 bg-gray-100 dark:bg-gray-800 shadow-md">
-  <h1 class="text-xl font-bold text-gray-800 dark:text-white">My Svelte App</h1>
-  <DarkModeToggle />
+<!-- Add padding to push content below the navbar -->
+<div class="pt-20">
+  <slot />
 </div>
-
-<slot />
